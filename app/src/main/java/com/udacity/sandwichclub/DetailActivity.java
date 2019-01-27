@@ -75,6 +75,9 @@ public class DetailActivity extends AppCompatActivity {
         TextView mtextwiew = findViewById(R.id.origin_tv);
         mtextwiew.setText(sandwich.getMainName());
         TextView Alsoknwnas = findViewById(R.id.also_known_tv);
+
+
         
+
     }
 }
