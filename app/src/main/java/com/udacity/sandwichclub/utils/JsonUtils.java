@@ -23,20 +23,20 @@ public class JsonUtils {
     public static Sandwich parseSandwichJson(String json) {
 
         try {
+        //creating a jason oblect for the imput sting  and parsing it
+            JSONObject rObject = new JSONObject(json);
+            JSONObject sObj = rObject.getJSONObject("name");
+            String mainName = sObj.getString("mainName");
+            JSONArray alsoknownas = sObj.getJSONArray("alsoKnownAs");
+            String placeOfOrigin = rObject.getString("placeOfOrigin");
+            String description = rObject.getString("description");
+            String imagePath = rObject.getString("image");
 
-            JSONObject rootObject = new JSONObject(json);
-            JSONObject subObj = rootObject.getJSONObject("name");
-            String mainName = subObj.getString("mainName");
-            JSONArray aka = subObj.getJSONArray("alsoKnownAs");
-            String placeOfOrigin = rootObject.getString("placeOfOrigin");
-            String description = rootObject.getString("description");
-            String imagePath = rootObject.getString("image");
-
-            JSONArray ingredientArray = rootObject.getJSONArray("ingredients");
+            JSONArray ingredientArray = rObject.getJSONArray("ingredients");
             List<String> alsoKnownAsList = new ArrayList<>();
 
-            for (int i = 0; i < aka.length(); i++) {
-                String alsoKnownAs = aka.getString(i);
+            for (int i = 0; i < alsoknownas.length(); i++) {
+                String alsoKnownAs = alsoknownas.getString(i);
                 alsoKnownAsList.add(alsoKnownAs);
             }
 
